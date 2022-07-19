@@ -33,6 +33,8 @@ function play() { audioEl.play(); pauseEl.style.display = 'none'; S.music = true
 function pause() { audioEl.pause(); pauseEl.style.display = 'block'; S.music = false; }
 function pauseView() { audioEl.pause(); pauseEl.style.display = 'play'; }
 
+/** '\x02wkz)(²\x98\x9D¢' */
+
 new View('license',
     () => {
         backgrounds.setActive('main');
