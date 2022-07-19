@@ -78,6 +78,7 @@ function buyFish(i) {
     if (price < S.balance) {
         S.balance -= price;
     } else {
+        msg(`You need more money`);
         return;
     }
 
