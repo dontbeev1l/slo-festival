@@ -1,3 +1,407 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@500&display=swap');
+
 .background_main {
     background: url('../img/bg.png');
+}
+
+body {
+    color: #fff;
+    font-family: Inter;
+}
+
+.f {
+    position: fixed;
+}
+
+.accept {
+    right: -96px;
+    width: 96px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.view_active .accept {
+    right: 24px;
+}
+
+.license-content {
+    position: fixed;
+    padding: 30px 0;
+    width: 90vw;
+    left: -90vw;
+    height: 100%;
+    overflow: auto;
+    box-sizing: border-box;
+}
+
+.view_active .license-content {
+    left: 5vw;
+}
+
+.background_overlay {
+    background: rgba(2, 3, 42, 0.7);
+}
+
+.menu__crab {
+    width: 40vw;
+    left: -40vw;
+    bottom: 0;
+}
+
+.view_active .menu__crab {
+    left: -2vw;
+}
+
+.menu__nav {
+    display: flex;
+    flex-direction: row;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 324px;
+    right: -324px;
+}
+
+.view_active .menu__nav {
+    right: 40px;
+}
+
+.nav-block {
+    margin-right: 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 300ms ease;
+}
+
+.nav-block:active {
+    transform: scale(.8);
+}
+
+.nav-block__bg {
+    width: 150px;
+}
+
+.nav-block__play {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 64px;
+    bottom: -30px;
+}
+
+.nav-block__title {
+    font-size: 18px;
+    margin-bottom: 8px;
+}
+
+.to-home {
+    width: 56px;
+    top: 12px;
+    left: -56px;
+    transition: all 300ms ease;
+}
+
+.music {
+
+    width: 56px;
+    top: 66px;
+    left: -56px;
+    transition: all 300ms ease;
+}
+
+.view_active .music {
+    left: 12px;
+}
+
+
+.view_active .to-home {
+    left: 12px;
+}
+
+.to-home:active {
+    transform: scale(.8);
+
+}
+
+.fish-el {
+    position: fixed;
+    transition: transform 400ms ease;
+}
+
+.fish-el.to-left {
+    transform: rotateY(180deg);
+}
+
+.game_crab {
+    bottom: 0;
+    width: 400px;
+    right: -400px;
+}
+
+._va .game_crab {
+    right: 0px;
+}
+
+.game__field {
+    width: 40vw;
+    left: -40vw;
+    top: 0;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    transition: left 300ms ease;
+}
+
+._va .game__field {
+    left: 10vw;
+}
+
+.game__range {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background: url('../img/range-bg.png');
+    background-size: 100% 100%;
+    width: 280px;
+    height: 45px;
+    right: -300px;
+    bottom: 16px;
+    padding-bottom: 6px;
+    box-sizing: border-box;
+    padding-right: 20px;
+}
+
+._va .game__range {
+    right: 70px;
+}
+
+.range__value {
+    height: 30px;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 15px;
+    border-radius: 15px;
+    min-width: 90px;
+    background: rgba(2, 3, 42, 0.7);
+    margin: 0 10px;
+}
+
+.game__range span {
+    font-size: 32px;
+    cursor: pointer;
+}
+
+.game__play {
+    position: absolute;
+    width: 61px;
+    top: -8px;
+    right: -30px;
+}
+
+.game__field>div {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border: 1px solid transparent;
+    position: relative;
+}
+
+.game__field>div.active {
+    background: linear-gradient(180deg, #FF4FCE 0%, #0038FF 100%);
+    border-radius: 30px;
+    border: 1px solid rgba(251, 255, 34, 1);
+
+}
+
+.game__field>div.active:after {
+    content: attr(data-x);
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    left: calc(100% + 12px);
+    font-size: 20px;
+}
+
+.g_bubble {
+    padding: 4px;
+    font-size: 0px;
+    position: relative;
+}
+
+.g_bubble.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.g_bubble.active[data-lose="1"]::before {
+    background-image: url('../img/bad.png');
+}
+
+.g_bubble.active[data-lose="0"]::before {
+    background-image: url('../img/good.png');
+}
+
+
+.g_bubble>img {
+    max-width: calc(calc(40vw - 40px) / 5);
+    max-height: calc(calc(90vw - 40px) / 5);
+}
+
+.balance {
+    width: 121px;
+    height: 40px;
+    position: fixed;
+    top: 10px;
+    right: -121px;
+    transition: all 300ms ease;
+    background: url('../img/balnace-bg.png');
+    background-size: 100% 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    box-sizing: border-box;
+    font-size: 18px;
+    padding-left: 24px;
+    padding-bottom: 2px;
+}
+
+._va .balance {
+    right: 10px;
+}
+
+img[src="./img/play.png"] {
+    cursor: pointer;
+}
+
+
+@keyframes msgAnim {
+    0% {
+        transform: translateY(0) translateX(-50%);
+        opacity: 1;
+    }
+
+    90% {
+        transform: translateY(0) translateX(-50%);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translateY(-100%) translateX(-50%);
+        opacity: 0;
+    }
+}
+
+.msg {
+    pointer-events: none;
+    color: #fff;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    height: 28px;
+    font-size: 16px;
+    border-radius: 14px;
+    background: rgba(0, 0, 0, 0.5);
+    position: fixed;
+    left: 50%;
+    z-index: 22;
+    top: 12px;
+    padding: 0 14px;
+    opacity: 0;
+    animation: msgAnim 2000ms ease;
+}
+
+.fish-buy {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+
+.fish-buy img {
+    height: 30px;
+}
+
+.fish-buy__btn {
+
+    background: linear-gradient(180deg, #D9D9D9 0%, #429924 0.01%, #74FF43 100%);
+    border: 1ps solid rgba(235, 255, 9, 1);
+    height: 20px;
+    border-radius: 10px;
+    padding: 0 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-top: 6px;
+}
+
+
+.view_fish .game__range {
+    justify-content: space-between;
+    padding: 0 26px;
+}
+
+._va.view_fish .game__range {
+    right: 12px !important;
+}
+
+.sponch,
+.food {
+    position: fixed;
+    transition: right 300ms ease;
+    width: 72px;
+    right: -72px;
+}
+
+.sponch {
+    bottom: 66px;
+}
+
+.food {
+    bottom: 150px;
+}
+
+._va .sponch,
+._va .food {
+    right: 12px;
+}
+
+.dirt {
+    position: fixed;
+    pointer-events: none;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: url('../img/dirt.png') repeat;
+    background-size: 256px 256px;
+}
+
+.korm-part {
+    width: 12px;
+    height: 12px;
+    background: burlywood;
+    border-radius: 8px;
+    transition: top 3000ms ease, opacity 5000ms, transform 5000ms ease;
+    position: fixed;
+    z-index: 2222;
 }

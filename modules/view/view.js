@@ -38,12 +38,14 @@ class View {
 
     activate() {
         document.querySelector(`.view_${this.name}`).classList.add('view_active');
+        document.querySelector(`.view_${this.name}`).classList.add('_va');
         this.activateFn();
         this.listeners.activate.forEach(fn => fn(this));
     }
 
     deactivate() {
         document.querySelector(`.view_${this.name}`).classList.remove('view_active');
+        document.querySelector(`.view_${this.name}`).classList.remove('_va');
         this.deactivateFn();
         this.listeners.deactivate.forEach(fn => fn(this));
     }

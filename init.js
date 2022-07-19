@@ -6,5 +6,6 @@ new ModulesLoader()
     .loadModule('storage')
     .onload([
         './views.js',
+        './aqua.js',
         './main.js'
     ]);
