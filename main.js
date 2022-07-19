@@ -20,7 +20,14 @@ class Game {
         row.setAttribute('data-x', `x${coef}`)
         row.setAttribute('data-coef', `${coef}`)
         const nums = new Set();
-        while (nums.size < 2) {
+        let numsSize = 2;
+        if (coef == 1) {
+            numsSize = 1;
+        } 
+        if (coef === 5) {
+            numsSize = 3;
+        }
+        while (nums.size < numsSize) {
             nums.add(random(5))
         };
         for (let i = 0; i < 5; i++) {
